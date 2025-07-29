@@ -27,7 +27,6 @@ li {
 .title { 
     font-size: 40px;
     color: #fdf6f0;
-    margin-bottom: 40px;
 }
 
 
@@ -40,7 +39,8 @@ li {
     background-color: #fdf6f0;
 }
 
-.sketch-pad {
+.container {
+    margin-top: 20px;
     display: flex;
     gap: 20px;
 }
@@ -60,7 +60,7 @@ li {
     flex-grow: 3;
 }
 
-button {
+.control {
     width: 200px;
     background-color: #96deff;
     border: none;
@@ -71,6 +71,28 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.control:hover {
     background-color: #beebff;
+}
+
+.sketch-pad {
+    display: flex;
+    flex-direction: column;
+}
+
+.show-grid-button {
+    background-color: #dfdfdf;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    font-size: 15px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.show-grid-button:hover {
+    background-color: #adadad;
+}
+
+.show-grid {
+    border: 1px solid black;
 }

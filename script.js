@@ -1,5 +1,6 @@
 const controlBtns = document.querySelector(".buttons");
 const gridContainer = document.querySelector(".grid-container");
+const showGrid = document.querySelector(".show-grid-button");
 let gridSize = parseInt(prompt("Enter grid size (if grid is n then it will look like n * n)"))
 let rainbowFlag = false;
 
@@ -85,3 +86,10 @@ controlBtns.addEventListener("click", (e) => {
     changeToRainbow(e);
     changeToBlack(e);
 })
+
+
+showGrid.addEventListener("click", () => {
+    for (child of gridContainer.children) {
+        child.classList.toggle("show-grid");
+    }
+});
