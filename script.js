@@ -1,6 +1,8 @@
 const controlBtns = document.querySelector(".buttons");
 const gridContainer = document.querySelector(".grid-container");
 let gridSize = parseInt(prompt("Enter grid size (if grid is n then it will look like n * n)"))
+let rainbow = false;
+
 function generateGrid(grid) {
     if (grid > 100 || grid < 0 || !grid ) {
         alert("please enter a valid number between 1 to 100");
@@ -19,14 +21,14 @@ function generateGrid(grid) {
 
 function draw(event) {
     if (!event.target.classList.contains("tile")) return;
-    event.target.classList.add("draw");
+    event.target.style.backgroundColor = "#000";
 }
 
 function erase(event) {
     if (!event.target.matches("button")) return;
     if (event.target.classList.contains("erase")) {
         for (const tile of gridContainer.children) {
-            tile.classList.remove("draw");
+            tile.style.backgroundColor = "#fff";
         }
     }
 }
