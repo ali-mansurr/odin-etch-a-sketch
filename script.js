@@ -1,7 +1,7 @@
 const controlBtns = document.querySelector(".buttons");
 const gridContainer = document.querySelector(".grid-container");
 const showGrid = document.querySelector(".show-grid-button");
-let gridSize = parseInt(prompt("Enter grid size (if grid is n then it will look like n * n)"))
+let gridSize = parseInt(prompt("Enter grid size (e.g., 16 for a 16 × 16 grid)"))
 let rainbowFlag = false;
 
 function generateGrid(grid) {
@@ -39,7 +39,7 @@ function erase(event) {
 function changeGridSize(event) {
     if (!event.target.matches("button")) return;
     if (event.target.classList.contains("resize")) {
-        gridSize = parseInt(prompt("Enter grid size (if grid is n then it will look like n * n)"))
+        gridSize = parseInt(prompt("Enter grid size (e.g., 16 for a 16 × 16 grid)"))
         for (const child of Array.from(gridContainer.children)) { //convert to static array because of live collection issue
             child.remove();
         }
