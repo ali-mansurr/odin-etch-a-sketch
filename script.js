@@ -18,6 +18,21 @@ function draw(event) {
     event.target.classList.add("draw");
 }
 
+function erase(event) {
+    if(!event.target.matches("button")) return;
+    if (event.target.classList.contains("erase")) {
+        for(const tile of gridContainer.children){
+            tile.classList.remove("draw");
+        }
+    }
+}
+
 generateGrid(16);
 
+// draw on hover
 gridContainer.addEventListener("mouseover", draw)
+
+// erase 
+controlBtns.addEventListener("click", (e) => {
+    erase(e)
+})
