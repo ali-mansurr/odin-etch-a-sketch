@@ -53,6 +53,12 @@ function changeToRainbow(event) {
     }
 }
 
+function changeToBlack(event) {
+    if (!event.target.matches("button")) return;
+    if (event.target.classList.contains("black")) {
+        rainbowFlag = false;
+    }
+}
 
 
 function rainbow() {
@@ -77,4 +83,5 @@ controlBtns.addEventListener("click", (e) => {
     erase(e);
     changeGridSize(e);
     changeToRainbow(e);
+    changeToBlack(e);
 })
