@@ -1,10 +1,10 @@
 const controlBtns = document.querySelector(".buttons");
 const gridContainer = document.querySelector(".grid-container");
 let gridSize = parseInt(prompt("Enter grid size (if grid is n then it will look like n * n)"))
-let rainbow = false;
+let rainbowFlag = false;
 
 function generateGrid(grid) {
-    if (grid > 100 || grid < 0 || !grid ) {
+    if (grid > 100 || grid < 0 || !grid) {
         alert("please enter a valid number between 1 to 100");
         return;
     };
@@ -21,7 +21,9 @@ function generateGrid(grid) {
 
 function draw(event) {
     if (!event.target.classList.contains("tile")) return;
-    event.target.style.backgroundColor = "#000";
+    if (rainbowFlag) {
+        event.target.style.backgroundColor = rainbow();
+    } else { event.target.style.backgroundColor = "#000"; }
 }
 
 function erase(event) {
@@ -44,15 +46,35 @@ function changeGridSize(event) {
     }
 }
 
+function changeToRainbow(event) {
+    if (!event.target.matches("button")) return;
+    if (event.target.classList.contains("rainbow")) {
+        rainbowFlag = true
+    }
+}
+
+
+
+function rainbow() {
+    function randInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+    const red = randInt(255);
+    const green = randInt(255);
+    const blue = randInt(255);
+    return `rgb(${red}, ${green}, ${blue})`
+}
+
+
 
 generateGrid(gridSize);
-console.log(typeof(gridSize))
 
-// draw on hover
-gridContainer.addEventListener("mouseover", draw)
+// draw 
+gridContainer.addEventListener("mouseover", (e) => draw(e))
 
-// erase 
+// buttons
 controlBtns.addEventListener("click", (e) => {
-    erase(e)
-    changeGridSize(e)
+    erase(e);
+    changeGridSize(e);
+    changeToRainbow(e);
 })
