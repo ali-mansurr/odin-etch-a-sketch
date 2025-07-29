@@ -1,6 +1,5 @@
 const controlBtns = document.querySelector(".buttons");
 const gridContainer = document.querySelector(".grid-container");
-
 function generateGrid(grid) {
     if (grid > 100) return "max grid : 100*100";
     const containerSize = gridContainer.clientWidth;
@@ -14,4 +13,11 @@ function generateGrid(grid) {
     }
 }
 
+function draw(event) {
+    if (!event.target.classList.contains("tile")) return;
+    event.target.classList.add("draw");
+}
+
 generateGrid(16);
+
+gridContainer.addEventListener("mouseover", draw)
